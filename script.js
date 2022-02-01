@@ -3,10 +3,8 @@ let size;
 
 const canvas = document.querySelector(".canvas");
 
-pixels.forEach(pixel => pixel.addEventListener("mouseenter", paintItBlack));
-
+//Paints random colours
 function paintItRGB(event) {
-    // console.log(event.target.style.backgroundColor);
     //Check if it had any colour prior to event.
     if (event.target.style.backgroundColor == "rgba(0, 0, 0, 0)") {
         event.target.style.backgroundColor = `rgba(${randomNumber()},${randomNumber()},${randomNumber()},1)`;
@@ -16,6 +14,7 @@ function paintItRGB(event) {
     }
 }
 
+//Creates a random number from 0-255
 function randomNumber() {
     return Math.floor(Math.random() * 256)
 }
@@ -29,23 +28,22 @@ function youWantItDarker(rgbaString) { //We kill the flame
     for (let i = 0; i < 3; i++) {
         if (parseInt(values[i]) < 25) {
             rgb[i] = 0;
-            // console.log("yep");
         }
         else {
             rgb[i] = parseInt(values[i]) - 25
-            // console.log("nop");
         }
     }
-    console.log(`rgba(${rgb[0]},${rgb[1]},${rgb[2]},1)`);
     return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},1)`;
 }
 
+//Turns the div black
 function paintItBlack(event) {
     event.target.style.backgroundColor = "black";
 }
 
+//Creates the grid and adds event listener
 function createGrid(size) {
-    
+
     if(isNaN(size)) return;
 
     let oldCanvas = document.querySelector(".canvas");
@@ -73,6 +71,7 @@ function createGrid(size) {
     pixels.forEach(pixel => pixel.addEventListener("mouseenter", paintItRGB));
 }
 
+//Prompts user for grid size
 function getCanvasSize() {
     let size = window.prompt("How big should the grid be? Please use numbers from between 2-100");
 
