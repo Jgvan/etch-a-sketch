@@ -1,7 +1,8 @@
 body {
     min-height: 100vh;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
 
 .canvas {
@@ -12,13 +13,10 @@ body {
     width: 500px;
     border: 1px solid black;
 }
-/* 
-.first{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-} */
 
+button {
+    margin: 25px 0 50px 0;
+}
 .pxl {
     /* width: 100px;
     height: 100px; */
