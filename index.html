@@ -11,7 +11,14 @@
 </head>
 
 <body>
-    <button onclick="createGrid(getCanvasSize())">Reset</button>
+    <div class="controls">
+        <div class="buttons">
+            <button onclick="createGrid()">Reset</button>
+            <button onclick="colorRGB()">RGB</button>
+            <button onclick="colorBlack()">Black</button>
+        </div>
+        <input type="range" name="grid-size" id="grid-size" min="2" max="100" step="1">
+    </div>
     <div class="canvas">
 
     </div>

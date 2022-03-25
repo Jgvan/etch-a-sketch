@@ -1,7 +1,13 @@
 let pixels = document.querySelectorAll(".pxl");
-let size;
-
+let storedSize = 16;
+let colorStyle = paintItRGB;
 const canvas = document.querySelector(".canvas");
+const slider = document.getElementById("grid-size");
+
+slider.onchange = function() {
+    createGrid(this.value);
+    storedSize = this.value;
+}
 
 //Paints random colours
 function paintItRGB(event) {
@@ -43,8 +49,7 @@ function paintItBlack(event) {
 
 //Creates the grid and adds event listener
 function createGrid(size) {
-
-    if(isNaN(size)) return;
+    if(isNaN(size)) size = storedSize;
 
     let oldCanvas = document.querySelector(".canvas");
     while (oldCanvas.firstChild) {
@@ -68,7 +73,8 @@ function createGrid(size) {
     pixels = document.querySelectorAll(".pxl");
     //TODO Make button to change eventlistener
     // pixels.forEach(pixel => pixel.addEventListener("mouseenter", paintItBlack));
-    pixels.forEach(pixel => pixel.addEventListener("mouseenter", paintItRGB));
+    // pixels.forEach(pixel => pixel.addEventListener("mouseenter", paintItRGB));
+    pixels.forEach(pixel => pixel.addEventListener("mouseenter", colorStyle));
 }
 
 //Prompts user for grid size
@@ -81,6 +87,17 @@ function getCanvasSize() {
     }
     return size;
 }
+
+function colorRGB(){
+    colorStyle = paintItRGB;
+    createGrid(storedSize);
+}
+
+function colorBlack(){
+    colorStyle = paintItBlack;
+    createGrid(storedSize);
+}
+
 
 createGrid(16);
 

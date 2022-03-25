@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(59, 115, 129);
 }
 
 .canvas {
@@ -11,9 +12,27 @@ body {
     justify-content: space-evenly;
     height: 500px;
     width: 500px;
-    border: 1px solid black;
+    border: 1px solid red;
+    background-color: #ffffff;
 }
 
 button {
-    margin: 25px 0 50px 0;
+    margin: 25px 0px 25px 0;
+}
+
+.buttons {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.controls input {
+    width: 200px;
 }
